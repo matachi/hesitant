@@ -65,6 +65,14 @@ body {
   /*#gradient > .striped();*/
 }
 
+#header {
+  background-size: cover;
+  display: block;
+  margin: 0 auto;
+  max-width: @screen-xl-min;
+  width: 100%;
+}
+
 .container-fluid {
   background-color: #fff;
   max-width: 1170px;
@@ -135,44 +143,14 @@ body {
   }
 }
 
-#blog-header {
-  background: url('http://misslisibell.se/wp-content/uploads/2014/03/header.jpg') no-repeat center right;
-  background-size: cover;
-  margin: 0 auto;
-  max-width: @screen-xl-min;
-  /*height: 200px;*/
-  text-align: center;
-  @media (max-width: @screen-xs-max) {
-    padding: 50% 0 0;
-  }
-  @media (min-width: @screen-sm-min) and (orientation: portrait) {
-    padding: 50% 0 0;
-  }
-  @media (min-width: @screen-sm-min) and (orientation: landscape) {
-    padding: 35% 0 0;
-  }
-  @media (min-width: @screen-md-min) {
-    padding: 300px 0;
-  }
-  @media (min-width: @screen-lg-min) {
-    padding: 350px 0;
-  }
-  @media (min-width: @screen-xl-min) {
-    padding: 400px 0;
-  }
-}
-
-.blog-header{
-  background-image: url('http://placehold.it/350x400');
-  background-repeat: no-repeat;
-  height: 400px;
-  display: block;
-}
-
 #content {
   line-height: 1.71429;
+  margin-bottom: 50px;
   & > * {
     padding-right: 25px;
+  }
+  article {
+    word-wrap: break-word;
   }
   .blog-post {
     border-bottom: 4px double darken(#fff, 10%);
@@ -183,6 +161,9 @@ body {
 
 .entry-header {
   margin-bottom: 20px;
+  h2 {
+    margin: 0 0 10px;
+  }
   .comments-link {
     margin-top: 10px;
   }
@@ -203,4 +184,23 @@ body {
     color: lighten(#000, 40%);
     text-decoration: underline;
   }
+}
+
+#sidebar {
+  .widget_search {
+    margin-bottom: 20px;
+  }
+  .widget-title {
+    color: #636363;
+    display: inline-block;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+}
+
+#footer {
+  border-top: 1px solid darken(#fff, 10%);
+  margin-top: 50px;
+  padding: 50px 0;
+  width: 100%;
 }
