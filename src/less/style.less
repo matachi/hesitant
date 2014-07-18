@@ -1,0 +1,206 @@
+@bootstrap-less: '../../bower_components/bootstrap/less/';
+
+// Core variables and mixins
+@import "@{bootstrap-less}variables.less";
+@import "@{bootstrap-less}mixins.less";
+
+// Reset and dependencies
+@import "@{bootstrap-less}normalize.less";
+@import "@{bootstrap-less}print.less";
+//@import "@{bootstrap-less}glyphicons.less";
+
+// Core CSS
+@import "@{bootstrap-less}scaffolding.less";
+@import "@{bootstrap-less}type.less";
+@import "@{bootstrap-less}code.less";
+@import "@{bootstrap-less}grid.less";
+@import "@{bootstrap-less}tables.less";
+@import "@{bootstrap-less}forms.less";
+@import "@{bootstrap-less}buttons.less";
+
+// Components
+@import "@{bootstrap-less}component-animations.less";
+@import "@{bootstrap-less}dropdowns.less";
+@import "@{bootstrap-less}button-groups.less";
+@import "@{bootstrap-less}input-groups.less";
+@import "@{bootstrap-less}navs.less";
+@import "@{bootstrap-less}navbar.less";
+@import "@{bootstrap-less}breadcrumbs.less";
+@import "@{bootstrap-less}pagination.less";
+@import "@{bootstrap-less}pager.less";
+@import "@{bootstrap-less}labels.less";
+@import "@{bootstrap-less}badges.less";
+@import "@{bootstrap-less}jumbotron.less";
+@import "@{bootstrap-less}thumbnails.less";
+@import "@{bootstrap-less}alerts.less";
+@import "@{bootstrap-less}progress-bars.less";
+@import "@{bootstrap-less}media.less";
+@import "@{bootstrap-less}list-group.less";
+@import "@{bootstrap-less}panels.less";
+@import "@{bootstrap-less}responsive-embed.less";
+@import "@{bootstrap-less}wells.less";
+@import "@{bootstrap-less}close.less";
+
+// Components w/ JavaScript
+@import "@{bootstrap-less}modals.less";
+@import "@{bootstrap-less}tooltip.less";
+@import "@{bootstrap-less}popovers.less";
+@import "@{bootstrap-less}carousel.less";
+
+// Utility classes
+@import "@{bootstrap-less}utilities.less";
+@import "@{bootstrap-less}responsive-utilities.less";
+
+// Own variables
+@font-family-sans-serif: "Fira Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+/*@font-size-base: 16px;*/
+/*@line-height-base: 1.71429;*/
+/*@headings-font-weight: 500;*/
+@brand-primary: #c81111;
+
+@screen-xl-min: 1920px;
+
+body {
+  /*background-color: #000;*/
+  /*#gradient > .striped();*/
+}
+
+.container-fluid {
+  background-color: #fff;
+  max-width: 1170px;
+  padding: 0 30px;
+}
+
+#site-navigation {
+  margin: 30px 0;
+  font-size: 95%;
+  text-align: center;
+  .menu-toggle {
+    #gradient > .vertical(darken(#fff, 2%), darken(#fff, 10%));
+    border: 1px solid darken(#fff, 15%);
+    box-shadow: 0 1px 2px rgba(64, 64, 64, 0.1);
+    color: #7c7c7c;
+    display: inline-block;
+    margin: 0 auto;
+    outline: none;
+    &.toggled-on {
+      #gradient > .vertical(darken(#fff, 5%), darken(#fff, 13%));
+      box-shadow: 0 1px 2px rgba(64, 64, 64, 0.1), 0 0 8px 2px rgba(64, 64, 64, 0.2) inset;
+    }
+  }
+  .menu {
+    display: none;
+    list-style: none outside none;
+    margin-top: 20px;
+    padding-left: 0;
+    width: 100%;
+    &.toggled-on {
+      display: inline-block;
+    }
+    li {
+      &.current-menu-item {
+        font-weight: bold;
+      }
+      a {
+        color: #636363;
+        display: inline-block;
+        line-height: 3.69231;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+      a:hover {
+        color: #000;
+        text-decoration: none;
+      }
+    }
+  }
+  @media (min-width: @screen-sm-min) {
+    .menu-toggle {
+      display: none;
+    }
+    .menu {
+      border-bottom: 1px solid #ededed;
+      border-top: 1px solid #ededed;
+      display: inline-block;
+      margin-top: 0;
+      text-align: left;
+      li {
+        display: inline-block;
+        margin-right: 40px;
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
+#blog-header {
+  background: url('http://misslisibell.se/wp-content/uploads/2014/03/header.jpg') no-repeat center right;
+  background-size: cover;
+  margin: 0 auto;
+  max-width: @screen-xl-min;
+  /*height: 200px;*/
+  text-align: center;
+  @media (max-width: @screen-xs-max) {
+    padding: 50% 0 0;
+  }
+  @media (min-width: @screen-sm-min) and (orientation: portrait) {
+    padding: 50% 0 0;
+  }
+  @media (min-width: @screen-sm-min) and (orientation: landscape) {
+    padding: 35% 0 0;
+  }
+  @media (min-width: @screen-md-min) {
+    padding: 300px 0;
+  }
+  @media (min-width: @screen-lg-min) {
+    padding: 350px 0;
+  }
+  @media (min-width: @screen-xl-min) {
+    padding: 400px 0;
+  }
+}
+
+.blog-header{
+  background-image: url('http://placehold.it/350x400');
+  background-repeat: no-repeat;
+  height: 400px;
+  display: block;
+}
+
+#content {
+  line-height: 1.71429;
+  & > * {
+    padding-right: 25px;
+  }
+  .blog-post {
+    border-bottom: 4px double darken(#fff, 10%);
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+  }
+}
+
+.entry-header {
+  margin-bottom: 20px;
+  .comments-link {
+    margin-top: 10px;
+  }
+}
+.entry-content {
+  img {
+    height: auto;
+    max-width: 100%;
+  }
+  p {
+    margin-bottom: 24px;
+  }
+}
+.entry-meta {
+  color: lighten(#000, 40%);
+  font-size: 95%;
+  a {
+    color: lighten(#000, 40%);
+    text-decoration: underline;
+  }
+}
