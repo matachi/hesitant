@@ -5,7 +5,10 @@ RUN apt-get update
 # Install MySQL
 RUN apt-get install -y mysql-server
 RUN mysql_install_db
-RUN /usr/sbin/mysqld & sleep 10s && mysqladmin -u root -p CREATE wordpress
+COPY wordpress/db.sql /tmp/db.sql
+RUN /usr/sbin/mysqld & sleep 10s &&\
+  mysqladmin -u root -p CREATE wordpress &&\
+  mysql -u root --password="" wordpress < /tmp/db.sql
 
 # Install Apache 2
 RUN apt-get install -y apache2
@@ -19,4 +22,7 @@ RUN apt-get install -y wget
 RUN wget http://wordpress.org/latest.tar.gz -O /tmp/wordpress.tar.gz
 RUN mkdir /var/www/html/wordpress
 RUN tar xfz /tmp/wordpress.tar.gz -C /var/www/html/wordpress --strip 1
+COPY wordpress/wp-config.php /var/www/html/wordpress/wp-config.php
 RUN chown -R www-data /var/www/html/wordpress
+
+CMD /etc/init.d/mysql start && /etc/init.d/apache2 start && bash

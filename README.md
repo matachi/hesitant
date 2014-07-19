@@ -14,6 +14,9 @@ Ubuntu):
     $ sudo npm install -g grunt-cli
     $ sudo chown -R `whoami`:`whoami` ~/.npm ~/tmp
 
+For instructions on how to install Docker, please visit
+<https://docs.docker.com/installation/ubuntulinux/>.
+
 ## Set up
 
 Install build tools and dependencies:
@@ -23,16 +26,28 @@ Install build tools and dependencies:
 For a complete list of packages being installed, see
 [package.json](package.json) and [bower.json](bower.json).
 
-## Start development environment
+The following two steps will create a Docker container with a complete LAMP
+stack and a WordPress blog running within it:
+
+    $ sudo docker build -t wordpress .
+    $ sudo docker run -i -t -p 80:80 -v `pwd`/dist:/var/www/html/wordpress/wp-content/themes/dunham-2036 wordpress
+
+The blog is then accessible at <http://localhost/wordpress> in your browser.
+The username is `admin` and the password is `123`.
+
+## Continually build development version
 
     $ grunt
 
 This will start a local webserver, open the index page in your browser and
 watch for file changes to livereload the browser page. The complete source code
-of the site being presented in the browser can be found in the directory
-`dist/`.
+of the theme can be found in the directory `dist/`. Note that this requires the
+Docker container to be running.
 
 ## Build deployment version
+
+This option won't start any development environment but only build a deployable
+version of the theme.
 
     $ grunt build
 
