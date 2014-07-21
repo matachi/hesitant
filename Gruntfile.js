@@ -60,7 +60,7 @@ module.exports = function(grunt) {
     },
 
     /**
-     * Copy static PHP files
+     * Copy static (PHP, image) files
      * https://github.com/gruntjs/grunt-contrib-copy
      */
     copy: {
@@ -69,6 +69,19 @@ module.exports = function(grunt) {
         cwd: '<%= project.src %>/',
         src: '**.php',
         dest: '<%= project.dist %>/',
+      },
+      img: {
+        expand: true,
+        cwd: '<%= project.src %>/',
+        src: 'img/*.{jpg,png}',
+        dest: '<%= project.dist %>/',
+      },
+    },
+
+    exec: {
+      background: {
+        cwd: '<%= project.dist %>/img/',
+        cmd: 'convert bg.png -fill "#ea3030" -tint 100 -brightness-contrast 10x0 bg.png',
       },
     },
 
@@ -266,6 +279,10 @@ module.exports = function(grunt) {
         files: '<%= project.src %>/**.php',
         tasks: ['copy:php', 'replace:livereload'],
       },
+      img: {
+        files: '<%= project.src %>/img/*.{jpg,png}',
+        tasks: ['copy:img', 'exec:background'],
+      },
       livereload: {
         options: {
           livereload: true,
@@ -286,6 +303,7 @@ module.exports = function(grunt) {
    */
   grunt.registerTask('default', [
     'copy',
+    'exec',
     'replace:livereload',
     'less:dev',
     'autoprefixer:dev',
