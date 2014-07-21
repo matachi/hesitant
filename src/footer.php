@@ -9,7 +9,6 @@
       </div>
     </footer>
 
-    <script src="/wordpress/wp-content/themes/dunham-2036/js/scripts.min.js"></script>
     <?php wp_footer(); ?>
   </body>
 </html>
