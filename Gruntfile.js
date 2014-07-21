@@ -234,6 +234,17 @@ module.exports = function(grunt) {
     },
 
     /**
+     * Compile the language PO file to MO
+     * https://github.com/MicheleBertoli/grunt-po2mo
+     */
+    po2mo: {
+      prod: {
+        src: '<%= project.src %>/languages/sv_SE.po',
+        dest: '<%= project.dist %>/languages/sv_SE.mo',
+      },
+    },
+
+    /**
      * Opens the web server in the browser
      * https://github.com/jsoverson/grunt-open
      */
@@ -266,6 +277,10 @@ module.exports = function(grunt) {
         files: '<%= project.src %>/**.php',
         tasks: ['copy:php', 'replace:livereload'],
       },
+      lang: {
+        files: '<%= project.src %>/languages/*.po',
+        tasks: ['po2mo'],
+      },
       livereload: {
         options: {
           livereload: true,
@@ -274,6 +289,7 @@ module.exports = function(grunt) {
           '<%= project.dist %>/{,*/}*.php',
           '<%= project.dist %>/css/style.min.css',
           '<%= project.dist %>/js/scripts.min.js',
+          '<%= project.dist %>/languages/*.mo',
           '<%= project.dist %>/{,*/}*.{png,jpg,gif,svg}',
         ],
       },
@@ -291,6 +307,7 @@ module.exports = function(grunt) {
     'autoprefixer:dev',
     'jshint',
     'concat:dev',
+    'po2mo',
     'open',
     'watch',
   ]);

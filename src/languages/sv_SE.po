@@ -1,0 +1,178 @@
+# Copyright (C) 2014 Daniel 'MaTachi' Jonsson
+# This file is distributed under the MIT.
+msgid ""
+msgstr ""
+"Project-Id-Version: Dunham 2036 0.1.0\n"
+"Report-Msgid-Bugs-To: https://github.com/MaTachi/dunham-2036/issues\n"
+"POT-Creation-Date: 2014-07-21 18:51:35+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Daniel 'MaTachi' Jonsson <dannie92@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: 404.php:8
+msgid "This is somewhat embarrassing, isn&rsquo;t it?"
+msgstr "Detta är lite pinsamt, eller hur?"
+
+#: 404.php:12
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr "Det verkar som att det du letade efter inte kunde hittas. Kanske kan "
+"en sökning hjälpa."
+
+#: archive.php:10
+msgid "Daily Archives: %s"
+msgstr "Dagsarkiv: %s"
+
+#: archive.php:12
+msgid "Monthly Archives: %s"
+msgstr "Månadsarkiv: %s"
+
+#: archive.php:12
+msgctxt "monthly archives date format"
+msgid "F Y"
+msgstr "F Y"
+
+#: archive.php:14
+msgid "Yearly Archives: %s"
+msgstr "Årsarkiv: %s"
+
+#: archive.php:14
+msgctxt "yearly archives date format"
+msgid "Y"
+msgstr "Y"
+
+#: archive.php:16
+msgid "Archives"
+msgstr "Arkiv"
+
+#: category.php:8
+msgid "Category Archives: %s"
+msgstr "Kategoriarkiv: %s"
+
+#: comments.php:12
+msgid "One thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] "En kommentar på &ldquo;%2$s&rdquo;"
+msgstr[1] "%1$s kommentarer på &ldquo;%2$s&rdquo;"
+
+#: comments.php:32
+msgid "&larr; Older Comments"
+msgstr "&larr; Äldre kommentarer"
+
+#: comments.php:33
+msgid "Newer Comments &rarr;"
+msgstr "Nyare kommentarer &rarr;"
+
+#: comments.php:40
+msgid "Comments are closed."
+msgstr "Kommentarsfältet är stängt."
+
+#: content-page.php:7 content.php:25 image.php:82
+msgid "Pages:"
+msgstr "Sidor:"
+
+#: content-page.php:10 content.php:30 image.php:26
+msgid "Edit"
+msgstr "Redigera"
+
+#: content.php:13
+msgid "Leave a reply"
+msgstr "Lämna en kommentar"
+
+#: content.php:14
+msgid "1 Reply"
+msgstr "1 kommentar"
+
+#: content.php:15
+msgid "% Replies"
+msgstr "% kommentarer"
+
+#: content.php:24
+msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
+msgstr "Fortsätt läsa <span class=\"meta-nav\">&rarr;</span>"
+
+#: functions.php:4
+msgid "Primary Menu"
+msgstr "Primär meny"
+
+#: functions.php:17
+msgid "Sidebar"
+msgstr "Sidopanel"
+
+#: functions.php:19
+msgid "Appears on all pages to the right"
+msgstr "Visas till höger på alla sidor"
+
+#: functions.php:43
+msgid "Page %s"
+msgstr "Sida %s"
+
+#: functions.php:53
+msgid "&larr; Older posts"
+msgstr "&larr; Äldre inlägg"
+
+#: functions.php:54
+msgid "Newer posts &rarr;"
+msgstr "Nyare inlägg &rarr;"
+
+#: functions.php:60
+msgid ", "
+msgstr ", "
+
+#: functions.php:69
+msgid "This entry was posted in %1$s on %2$s."
+msgstr "Detta inlägget postades i %1$s den %2$s."
+
+#: header.php:24
+msgid "Menu"
+msgstr "Meny"
+
+#: image.php:15
+msgid ""
+"<span class=\"meta-prep meta-prep-entry-date\">Published </span> <span class="
+"\"entry-date\"><time class=\"entry-date\" datetime=\"%1$s\">%2$s</time></"
+"span> at <a href=\"%3$s\" title=\"Link to full-size image\">%4$s &times; "
+"%5$s</a> in <a href=\"%6$s\" title=\"Return to %7$s\" rel=\"gallery\">%8$s</"
+"a>."
+msgstr ""
+
+#: image.php:30
+msgid "&larr; Previous"
+msgstr "&larr; Tidigare"
+
+#: image.php:31
+msgid "Next &rarr;"
+msgstr "Nästa &rarr;"
+
+#: search.php:10
+msgid "Search Results for: %s"
+msgstr "Sökresultat för: %s"
+
+#: search.php:25
+msgid "Nothing Found"
+msgstr "Inget kunde hittas"
+
+#: search.php:30
+msgid ""
+"Sorry, but nothing matched your search criteria. Please try again with some "
+"different keywords."
+msgstr "Ledsen, inga resultat kunde hittas med dina sökord. Var vänlig "
+"att försöka med andra ord."
+
+#: searchform.php:8
+msgid "Search"
+msgstr "Sök"
+
+#: single.php:10
+msgctxt "Previous post link"
+msgid "&larr;"
+msgstr "&larr;"
+
+#: single.php:11
+msgctxt "Next post link"
+msgid "&rarr;"
+msgstr "&rarr;"

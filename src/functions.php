@@ -1,5 +1,6 @@
 <?php
 function dunham_2036_setup() {
+  load_theme_textdomain( 'dunham-2036', get_template_directory() . '/languages' );
   add_theme_support( 'automatic-feed-links' );
   register_nav_menu( 'primary', __( 'Primary Menu', 'dunham-2036' ) );
 }
