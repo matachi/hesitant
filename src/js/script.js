@@ -1,13 +1,5 @@
 'use strict';
 
-function parallax() {
-  var scrolled = $(window).scrollTop();
-  if (scrolled < 500) {
-    $('.blog-header').css('background-position', '0px ' + (0.2 * scrolled) + 'px');
-  }
-}
-$(window).scroll(parallax);
-
 (function() {
   var nav = document.getElementById('site-navigation'), button, menu;
   button = nav.getElementsByTagName('button')[0];
