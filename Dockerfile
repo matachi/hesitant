@@ -23,6 +23,16 @@ RUN wget http://wordpress.org/latest.tar.gz -O /tmp/wordpress.tar.gz
 RUN mkdir /var/www/html/wordpress
 RUN tar xfz /tmp/wordpress.tar.gz -C /var/www/html/wordpress --strip 1
 COPY wordpress/wp-config.php /var/www/html/wordpress/wp-config.php
+
+# Download WordPress' i18n tools
+# http://codex.wordpress.org/I18n_for_WordPress_Developers#Translating_Plugins_and_Themes
+# gettext is necessary for the tools to work
+RUN apt-get install -y subversion gettext
+RUN svn co http://develop.svn.wordpress.org/trunk/tools/ /var/www/html/wordpress/tools/
+RUN ln -s /var/www/html/wordpress /var/www/html/wordpress/src
+RUN php /var/www/html/wordpress/tools/i18n/makepot.php wp-theme /var/www/html/wordpress/wp-content/themes/dunham-2036/ /var/www/html/wordpress/wp-content/themes/dunham-2036/dunham-2036.pot
+
+# Fix ownership of the WordPress directory
 RUN chown -R www-data /var/www/html/wordpress
 
 CMD /etc/init.d/mysql start && /etc/init.d/apache2 start && bash
