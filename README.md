@@ -55,6 +55,15 @@ This will build a deployment version of the WordPress theme. The result can be
 found in the directory `dist/`. This Grunt task has minification of CSS and JS
 turned on and some additional cleaning, which the development task doesn't.
 
+## Build POT file
+
+Attach to the Docker container and run the following command inside it:
+
+    $ php /var/www/html/wordpress/tools/i18n/makepot.php wp-theme /var/www/html/wordpress/wp-content/themes/dunham-2036/ /var/www/html/wordpress/wp-content/themes/dunham-2036/dunham-2036.pot
+
+The POT file is accessible outside the Docker container at
+`dist/dunham-2036.pot`.
+
 ## Dependencies
 
 * [Bootstrap](http://getbootstrap.com/), licensed under [The Mit

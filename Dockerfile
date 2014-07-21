@@ -30,7 +30,6 @@ COPY wordpress/wp-config.php /var/www/html/wordpress/wp-config.php
 RUN apt-get install -y subversion gettext
 RUN svn co http://develop.svn.wordpress.org/trunk/tools/ /var/www/html/wordpress/tools/
 RUN ln -s /var/www/html/wordpress /var/www/html/wordpress/src
-RUN php /var/www/html/wordpress/tools/i18n/makepot.php wp-theme /var/www/html/wordpress/wp-content/themes/dunham-2036/ /var/www/html/wordpress/wp-content/themes/dunham-2036/dunham-2036.pot
 
 # Fix ownership of the WordPress directory
 RUN chown -R www-data /var/www/html/wordpress
