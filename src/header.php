@@ -17,9 +17,11 @@
     <?php wp_head(); ?>
   </head>
   <body>
+
     <img id="header" src="http://misslisibell.se/wp-content/uploads/2014/03/header.jpg">
 
     <div class="container-fluid">
+
       <nav id="site-navigation" role="navigation">
         <button type="button" class="btn menu-toggle">Meny</button>
         <ul class="menu">
