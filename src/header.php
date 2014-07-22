@@ -17,7 +17,7 @@
   <body>
 
     <div id="header">
-      <a href="<?php echo esc_url( home_url( '/' ) ); ?>?">
+      <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
         <img id="header" src="<?php echo get_template_directory_uri() . '/img/header.jpg' ?>">
       </a>
     </div>
