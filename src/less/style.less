@@ -144,8 +144,10 @@ body {
 #content {
   line-height: 1.71429;
   margin-bottom: 50px;
-  & > * {
-    margin-right: 25px;
+  @media (min-width: @screen-sm-min) {
+    & > * {
+      margin-right: 25px;
+    }
   }
   article {
     border-bottom: 4px double darken(#fff, 10%);
