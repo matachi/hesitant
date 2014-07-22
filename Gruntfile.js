@@ -151,11 +151,13 @@ module.exports = function(grunt) {
         },
         files: {
           '<%= project.dist %>/style.unprefixed.css': '<%= project.css %>',
+          '<%= project.dist %>/editor-style.css': '<%= project.src %>/less/editor-style.less',
         },
       },
       prod: {
         files: {
           '<%= project.dist %>/style.unprefixed.css': '<%= project.css %>',
+          '<%= project.dist %>/editor-style.css': '<%= project.src %>/less/style.less',
         },
       },
     },
@@ -169,9 +171,16 @@ module.exports = function(grunt) {
         options: {
           stylesheets: ['style.unprefixed.css'],
           ignore: [
+            /#header.*/,
+            /#site-navigation.*/,
+            /#content.*/,
+            /#sidebar.*/,
+            /#footer.*/,
+            /\.entry-header.*/,
+            /\.entry-content.*/,
+            /\.entry-meta.*/,
+            /\.archive-header.*/,
             /.*\.toggled-on/,
-            '#sidebar ul',
-            /\.entry-content.+/,
             /\.aligncenter/,
             'embed',
             'iframe',
