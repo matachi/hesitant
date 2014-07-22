@@ -1,4 +1,7 @@
 <?php
+if ( ! isset( $content_width ) )
+  $content_width = 800;
+
 function dunham_2036_setup() {
   load_theme_textdomain( 'dunham-2036', get_template_directory() . '/languages' );
   add_theme_support( 'automatic-feed-links' );

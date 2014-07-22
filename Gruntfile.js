@@ -171,6 +171,12 @@ module.exports = function(grunt) {
           ignore: [
             /.*\.toggled-on/,
             '#sidebar ul',
+            /\.entry-content.+/,
+            /\.aligncenter/,
+            'embed',
+            'iframe',
+            'object',
+            'video',
           ],
           urls: [
             'http://localhost/wordpress',
