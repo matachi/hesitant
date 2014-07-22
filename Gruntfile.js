@@ -171,7 +171,10 @@ module.exports = function(grunt) {
           ignore: [
             /.*\.toggled-on/,
           ],
-          urls: ['http://localhost/wordpress'],
+          urls: [
+            'http://localhost/wordpress',
+            'http://localhost/wordpress/?p=1',
+          ],
         },
         files: {
           '<%= project.dist %>/style.unprefixed.css': [
