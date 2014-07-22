@@ -16,7 +16,11 @@
   </head>
   <body>
 
-    <img id="header" src="http://misslisibell.se/wp-content/uploads/2014/03/header.jpg">
+    <div id="header">
+      <a href="<?php echo esc_url( home_url( '/' ) ); ?>?">
+        <img id="header" src="<?php echo get_template_directory_uri() . '/img/header.jpg' ?>">
+      </a>
+    </div>
 
     <div class="container-fluid">
 
