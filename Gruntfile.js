@@ -326,6 +326,7 @@ module.exports = function(grunt) {
     'clean:prod',
     'jshint',
     'uglify',
+    'po2mo',
   ]);
 
 };
