@@ -174,6 +174,7 @@ module.exports = function(grunt) {
           urls: [
             'http://localhost/wordpress',
             'http://localhost/wordpress/?p=1',
+            'http://localhost/wordpress/?page_id=2',
           ],
         },
         files: {
