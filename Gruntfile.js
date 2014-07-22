@@ -170,6 +170,7 @@ module.exports = function(grunt) {
           stylesheets: ['style.unprefixed.css'],
           ignore: [
             /.*\.toggled-on/,
+            '#sidebar ul',
           ],
           urls: [
             'http://localhost/wordpress',
