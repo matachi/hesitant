@@ -157,7 +157,7 @@ module.exports = function(grunt) {
       prod: {
         files: {
           '<%= project.dist %>/style.unprefixed.css': '<%= project.css %>',
-          '<%= project.dist %>/editor-style.css': '<%= project.src %>/less/style.less',
+          '<%= project.dist %>/editor-style.css': '<%= project.src %>/less/editor-style.less',
         },
       },
     },
