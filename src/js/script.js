@@ -1,6 +1,20 @@
-'use strict';
+// Source: http://youmightnotneedjquery.com/#ready
+function ready(fn) {
+  'use strict';
+  if (document.addEventListener) {
+    document.addEventListener('DOMContentLoaded', fn);
+  } else {
+    document.attachEvent('onreadystatechange', function() {
+      if (document.readyState === 'interactive') {
+        fn();
+      }
+    });
+  }
+}
 
-(function() {
+ready(function() {
+  'use strict';
+
   var nav = document.getElementById('site-navigation'), button, menu;
   button = nav.getElementsByTagName('button')[0];
   menu = nav.getElementsByTagName('ul')[0];
@@ -19,4 +33,4 @@
       menu.className += ' toggled-on';
     }
   };
-})();
+});
