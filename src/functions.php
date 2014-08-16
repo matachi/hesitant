@@ -15,7 +15,7 @@ add_action( 'after_setup_theme', 'dunham_2036_setup' );
 function dunham_2036_scripts_styles() {
   wp_enqueue_style( 'dunham-2036-fonts', esc_url_raw( 'http://fonts.googleapis.com/css?family=Fira+Sans:400,400italic,500,700,700italic' ) );
   wp_enqueue_style( 'dunham-2036-style', get_stylesheet_uri() );
-  wp_enqueue_script( 'dunham-2036-script', get_template_directory_uri() . '/js/scripts.min.js', [], '20140720', true );
+  wp_enqueue_script( 'dunham-2036-script', get_template_directory_uri() . '/js/scripts.min.js', [], '20140816', true );
 }
 add_action( 'wp_enqueue_scripts', 'dunham_2036_scripts_styles' );
 
