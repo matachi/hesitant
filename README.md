@@ -64,6 +64,12 @@ Attach to the Docker container and run the following command inside it:
 The POT file is accessible outside the Docker container at
 `dist/dunham-2036.pot`.
 
+## Export the SQL tables
+
+First attach to the Docker container and then run:
+
+    $ mysqldump -u root --password="" wordpress | sed 's$),($),\n($g' > db.sql
+
 ## Dependencies
 
 * [Bootstrap](http://getbootstrap.com/), licensed under [The Mit
