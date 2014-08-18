@@ -2,8 +2,8 @@
 # This file is distributed under the MIT.
 msgid ""
 msgstr ""
-"Project-Id-Version: Dunham 2036 0.1.0\n"
-"Report-Msgid-Bugs-To: https://github.com/MaTachi/dunham-2036/issues\n"
+"Project-Id-Version: Hesitant 0.1.0\n"
+"Report-Msgid-Bugs-To: https://github.com/MaTachi/hesitant/issues\n"
 "POT-Creation-Date: 2014-07-21 18:51:35+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -176,11 +176,11 @@ msgid "&rarr;"
 msgstr ""
 
 #. Theme Name of the plugin/theme
-msgid "Dunham 2036"
+msgid "Hesitant"
 msgstr ""
 
 #. Theme URI of the plugin/theme
-msgid "https://github.com/MaTachi/dunham-2036"
+msgid "https://github.com/MaTachi/hesitant"
 msgstr ""
 
 #. Description of the plugin/theme

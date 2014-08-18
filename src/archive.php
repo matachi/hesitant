@@ -7,13 +7,13 @@
       <h4 class="archive-title">
         <?php
         if ( is_day() ) :
-          printf( __( 'Daily Archives: %s', 'dunham-2036' ), get_the_date() );
+          printf( __( 'Daily Archives: %s', 'hesitant' ), get_the_date() );
         elseif ( is_month() ) :
-          printf( __( 'Monthly Archives: %s', 'dunham-2036' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'dunham-2036' ) ) );
+          printf( __( 'Monthly Archives: %s', 'hesitant' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'hesitant' ) ) );
         elseif ( is_year() ) :
-          printf( __( 'Yearly Archives: %s', 'dunham-2036' ), get_the_date( _x( 'Y', 'yearly archives date format', 'dunham-2036' ) ) );
+          printf( __( 'Yearly Archives: %s', 'hesitant' ), get_the_date( _x( 'Y', 'yearly archives date format', 'hesitant' ) ) );
         else :
-          _e( 'Archives', 'dunham-2036' );
+          _e( 'Archives', 'hesitant' );
         endif;
         ?>
       </h4>
@@ -24,7 +24,7 @@
       get_template_part( 'content', get_post_format() );
     endwhile;
 
-    dunham_2036_content_nav();
+    hesitant_content_nav();
     ?>
 
   <?php else : ?>

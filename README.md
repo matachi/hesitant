@@ -1,6 +1,7 @@
-# Dunham 2036
+# Hesitant
 
-Classy WordPress theme that follows those classic blog conventions.
+WordPress theme that adheres to those classic blog conventions and hesitantly
+looks at the new trends.
 
 Author: Daniel "MaTachi" Jonsson, [matachi.se](http://matachi.se)  
 License: [MIT License](LICENSE.md)
@@ -30,7 +31,7 @@ The following two steps will create a Docker container with a complete LAMP
 stack and a WordPress blog running within it:
 
     $ sudo docker build -t wordpress .
-    $ sudo docker run -i -t -p 80:80 -v `pwd`/dist:/var/www/html/wordpress/wp-content/themes/dunham-2036 wordpress
+    $ sudo docker run -i -t -p 80:80 -v `pwd`/dist:/var/www/html/wordpress/wp-content/themes/hesitant wordpress
 
 The blog is then accessible at <http://localhost/wordpress> in your browser.
 The username is `admin` and the password is `123`.
@@ -59,10 +60,9 @@ turned on and some additional cleaning, which the development task doesn't.
 
 Attach to the Docker container and run the following command inside it:
 
-    $ php /var/www/html/wordpress/tools/i18n/makepot.php wp-theme /var/www/html/wordpress/wp-content/themes/dunham-2036/ /var/www/html/wordpress/wp-content/themes/dunham-2036/dunham-2036.pot
+    $ php /var/www/html/wordpress/tools/i18n/makepot.php wp-theme /var/www/html/wordpress/wp-content/themes/hesitant/ /var/www/html/wordpress/wp-content/themes/hesitant/hesitant.pot
 
-The POT file is accessible outside the Docker container at
-`dist/dunham-2036.pot`.
+The POT file is accessible outside the Docker container at `dist/hesitant.pot`.
 
 ## Export the SQL tables
 

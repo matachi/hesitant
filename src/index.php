@@ -9,7 +9,7 @@
         get_template_part( 'content', get_post_format() );
       endwhile;
 
-      dunham_2036_content_nav();
+      hesitant_content_nav();
 
     endif;
   ?>

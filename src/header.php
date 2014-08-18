@@ -24,7 +24,7 @@
     <div class="container-fluid">
 
       <nav id="site-navigation" role="navigation">
-        <button type="button" class="btn menu-toggle"><?php _e( 'Menu', 'dunham-2036' ); ?></button>
+        <button type="button" class="btn menu-toggle"><?php _e( 'Menu', 'hesitant' ); ?></button>
         <?php wp_nav_menu( array(
           'theme_location' => 'primary',
           'container' => false

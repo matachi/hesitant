@@ -5,7 +5,7 @@
   <?php if ( have_posts() ) : ?>
     <header class="archive-header">
       <h4 class="archive-title">
-        <?php printf( __( 'Category Archives: %s', 'dunham-2036' ), single_cat_title( '', false ) ); ?>
+        <?php printf( __( 'Category Archives: %s', 'hesitant' ), single_cat_title( '', false ) ); ?>
       </h4>
       <?php if ( category_description() ) : ?>
         <div class="archive-meta"><?php echo category_description(); ?></div>
@@ -17,7 +17,7 @@
       get_template_part( 'content', get_post_format() );
     endwhile;
 
-    dunham_2036_content_nav();
+    hesitant_content_nav();
     ?>
 
   <?php else : ?>
