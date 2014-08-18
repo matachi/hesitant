@@ -70,6 +70,12 @@ module.exports = function(grunt) {
         src: '**.php',
         dest: '<%= project.dist %>/',
       },
+      header: {
+        expand: true,
+        cwd: '<%= project.src %>/',
+        src: 'img/header.jpg',
+        dest: '<%= project.dist %>/',
+      },
     },
 
     /**
@@ -296,6 +302,10 @@ module.exports = function(grunt) {
       php: {
         files: '<%= project.src %>/**.php',
         tasks: ['copy:php', 'replace:livereload'],
+      },
+      header: {
+        files: '<%= project.src %>/img/header.jpg',
+        tasks: ['copy:header'],
       },
       lang: {
         files: '<%= project.src %>/languages/*.po',
