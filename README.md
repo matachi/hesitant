@@ -74,3 +74,10 @@ First attach to the Docker container and then run:
 
 * [Bootstrap](http://getbootstrap.com/), licensed under [The Mit
   License](https://github.com/twbs/bootstrap/blob/master/LICENSE).
+
+## Credits
+
+The header photo is available on
+[flickr](https://www.flickr.com/photos/iamsheep/13956131904/), it's taken by
+[iamsheep](https://www.flickr.com/photos/iamsheep/) and it's licensed under [CC
+BY 2.0](https://creativecommons.org/licenses/by/2.0/).
