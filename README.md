@@ -8,15 +8,14 @@ License: [MIT License](LICENSE.md)
 
 ## Prerequisites
 
-Instructions to install npm and Grunt on a Debian based system (for example
-Ubuntu):
+Instructions to install Docker, nodejs, npm and Grunt on Fedora:
 
-    $ sudo apt-get install nodejs
+    $ sudo dnf install docker nodejs npm
     $ sudo npm install -g grunt-cli
-    $ sudo chown -R `whoami`:`whoami` ~/.npm ~/tmp
 
-For instructions on how to install Docker, please visit
-<https://docs.docker.com/installation/ubuntulinux/>.
+Start Docker:
+
+    $ sudo systemctl start docker
 
 ## Set up
 
