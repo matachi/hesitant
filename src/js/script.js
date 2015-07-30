@@ -34,3 +34,12 @@ ready(function() {
     }
   };
 });
+
+/* jshint camelcase: false */
+window.cookieconsent_options = {
+  message: 'Denna bloggen använder cookies för att ge dig en bättre upplevelse.',
+  dismiss: 'Jag godkänner',
+  learnMore: 'Om cookies på misslisibell.se.',
+  link: 'om-cookies/',
+  theme: null
+};
