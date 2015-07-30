@@ -3,8 +3,10 @@
 WordPress theme that adheres to those classic blog conventions and hesitantly
 looks at the new trends.
 
-Author: Daniel "MaTachi" Jonsson, [matachi.se](http://matachi.se)  
-License: [MIT License](LICENSE.md)
+Author: Daniel Jonsson, [matachi.se](http://matachi.se)  
+License: [GPLv3](LICENSE) †
+
+† See the section `License` for further information.
 
 ## Prerequisites
 
@@ -69,14 +71,29 @@ First attach to the Docker container and then run:
 
     $ mysqldump -u root --password="" wordpress | sed 's$),($),\n($g' > db.sql
 
+## License
+
+This project was originally licensed under the MIT License. However, due to
+Cookie Consent now being included as a dependency, which is licensed under the
+GPL, the larger program, i.e. this WordPress theme, must also be
+distributed under the GPL due to [GPL's viral
+nature](https://en.wikipedia.org/wiki/Viral_license).
+
+However, code contributed to this project specifically is still licensed under
+the MIT License. But as long as the project depends on at least one GPL
+licensed library, the larger program is distributed under the GPL. [Read
+more](http://www.gnu.org/licenses/gpl-faq.en.html#GPLWrapper).
+
 ## Dependencies
 
-* [Bootstrap](http://getbootstrap.com/), licensed under [The Mit
+* [Bootstrap](http://getbootstrap.com/), licensed under [The MIT
   License](https://github.com/twbs/bootstrap/blob/master/LICENSE).
+* [Cookie Consent](https://silktide.com/tools/cookie-consent/), licensed under
+  [GPLv3](https://silktide.com/tools/cookie-consent/docs/license/).
 
-## Credits
+## Additional credits
 
 The header photo is available on
-[flickr](https://www.flickr.com/photos/iamsheep/13956131904/), it's taken by
+[Flickr](https://www.flickr.com/photos/iamsheep/13956131904/), it's taken by
 [iamsheep](https://www.flickr.com/photos/iamsheep/) and it's licensed under [CC
 BY 2.0](https://creativecommons.org/licenses/by/2.0/).
