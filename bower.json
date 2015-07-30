@@ -1,8 +1,9 @@
 {
   "name": "hesitant",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "dependencies": {
-    "bootstrap": "~3.2.0"
+    "bootstrap": "~3.3.5",
+    "cookieconsent2": "~1.0.6"
   },
   "private": true
 }

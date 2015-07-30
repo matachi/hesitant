@@ -19,7 +19,7 @@ RUN apt-get install -y php5 php5-mysql
 
 # Install WordPress
 RUN apt-get install -y wget
-RUN wget http://wordpress.org/latest.tar.gz -O /tmp/wordpress.tar.gz
+RUN wget https://wordpress.org/wordpress-4.2.3.tar.gz -O /tmp/wordpress.tar.gz
 RUN mkdir /var/www/html/wordpress
 RUN tar xfz /tmp/wordpress.tar.gz -C /var/www/html/wordpress --strip 1
 COPY wordpress/wp-config.php /var/www/html/wordpress/wp-config.php

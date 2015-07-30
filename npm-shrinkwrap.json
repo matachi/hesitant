@@ -1,0 +1,24 @@
+{
+  "name": "hesitant",
+  "version": "0.1.0",
+  "dependencies": {
+    "grunt-uncss": {
+      "version": "0.4.3",
+      "from": "grunt-uncss@^0.4.3",
+      "dependencies": {
+        "chalk": {
+          "version": "1.0.0",
+          "from": "chalk@~1.0.0"
+        },
+        "maxmin": {
+          "version": "1.1.0",
+          "from": "maxmin@^1.0.0"
+        },
+        "uncss": {
+          "version": "0.10.0",
+          "from": "uncss@~0.12.1"
+        }
+      }
+    }
+  }
+}

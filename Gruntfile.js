@@ -18,7 +18,9 @@ module.exports = function(grunt) {
       src: 'src',
       dist: 'dist',
       css: ['<%= project.src %>/less/style.less'],
+      scss: ['<%= project.src %>/sass/style.scss'],
       js: ['<%= project.src %>/js/*.js'],
+      jsDep: ['bower_components/cookieconsent2/cookieconsent.js'],
     },
 
     /**
@@ -31,7 +33,7 @@ module.exports = function(grunt) {
         '/*!\n' +
         ' * <%= pkg.title %> <%= pkg.version %> (<%= pkg.homepage %>)\n' +
         ' * Copyright <%= pkg.copyright %> <%= pkg.author.name %> (<%= pkg.author.url %>)\n' +
-        ' * Licensed under <%= pkg.license.type %> (<%= pkg.license.url %>).\n' +
+        ' * Licensed under <%= pkg.license.type %> (<%= pkg.license.url %>)\n' +
         ' */\n',
       wordpress:
         '/*\n' +
@@ -54,6 +56,7 @@ module.exports = function(grunt) {
     clean: {
       prod: [
         '<%= project.dist %>/style.unprefixed.css',
+        '<%= project.dist %>/style2.unprefixed.css',
         '<%= project.dist %>/style.prefixed.css',
         '<%= project.dist %>/style.min.css',
       ]
@@ -116,14 +119,25 @@ module.exports = function(grunt) {
      * Imports all .js files and appends project banner
      */
     concat: {
-      options: {
-        stripBanners: true,
-        nonull: true,
-        banner: '<%= tag.banner %>',
-      },
       dev: {
+        options: {
+          stripBanners: true,
+          nonull: true,
+          banner: '<%= tag.banner %>',
+        },
         files: {
-          '<%= project.dist %>/js/scripts.min.js': '<%= project.js %>',
+          '<%= project.dist %>/js/scripts.min.js': [
+            '<%= project.js %>',
+            '<%= project.jsDep %>',
+          ],
+        },
+      },
+      css: {
+        files: {
+          '<%= project.dist %>/style.unprefixed.css': [
+            '<%= project.dist %>/style.unprefixed.css',
+            '<%= project.dist %>/style2.unprefixed.css',
+          ],
         },
       },
     },
@@ -134,12 +148,12 @@ module.exports = function(grunt) {
      * Compresses and minifies all JavaScript files into one
      */
     uglify: {
-      options: {
-        banner: '<%= tag.banner %>',
-      },
       prod: {
         files: {
-          '<%= project.dist %>/js/scripts.min.js': '<%= project.js %>',
+          '<%= project.dist %>/js/scripts.min.js': [
+            '<%= project.js %>',
+            '<%= project.jsDep %>',
+          ],
         },
       },
     },
@@ -147,8 +161,6 @@ module.exports = function(grunt) {
     /**
      * Compile Less files
      * https://github.com/gruntjs/grunt-contrib-less
-     * 140719: Using the git version because v0.11.4-pre has the `banner`
-     * option
      */
     less: {
       dev: {
@@ -164,6 +176,17 @@ module.exports = function(grunt) {
         files: {
           '<%= project.dist %>/style.unprefixed.css': '<%= project.css %>',
           '<%= project.dist %>/editor-style.css': '<%= project.src %>/less/editor-style.less',
+        },
+      },
+    },
+
+    /**
+     * Compile SCSS
+     */
+    sass: {
+      prod: {
+        files: {
+          '<%= project.dist %>/style2.unprefixed.css': '<%= project.scss %>',
         },
       },
     },
@@ -188,6 +211,8 @@ module.exports = function(grunt) {
             /\.archive-header.*/,
             /.*\.toggled-on/,
             /\.aligncenter/,
+            /\.pager/,
+            /\.cc_.*/,
             'embed',
             'iframe',
             'object',
@@ -215,10 +240,9 @@ module.exports = function(grunt) {
       options: {
         browsers: [
           'last 2 version',
-          'safari 6',
+          'safari 7',
           'ie 9',
-          'opera 12.1',
-          'ios 6',
+          'ios 7',
           'android 4',
         ],
       },
@@ -250,12 +274,34 @@ module.exports = function(grunt) {
      */
     cssmin: {
       prod: {
-        options: {
-          banner: '<%= tag.wordpress %>',
-          keepSpecialComments: 0,
-        },
         src: '<%= project.dist %>/style.min.css',
         dest: '<%= project.dist %>/style.css',
+      },
+    },
+
+    /**
+     * Add banners
+     */
+    usebanner: {
+      options: {
+        position: 'top',
+        linebreak: true,
+      },
+      css: {
+        options: {
+          banner: '<%= tag.wordpress %>',
+        },
+        files: {
+          src: '<%= project.dist %>/style.css',
+        },
+      },
+      js: {
+        options: {
+          banner: '<%= tag.banner %>',
+        },
+        files: {
+          src: '<%= project.dist %>/js/scripts.min.js',
+        },
       },
     },
 
@@ -293,11 +339,16 @@ module.exports = function(grunt) {
       },
       js: {
         files: '<%= project.src %>/js/{,*/}*.js',
-        tasks: ['jshint', 'concat:dev'],
+        tasks: ['jshint', 'concat:dev', 'usebanner:js'],
       },
       less: {
         files: '<%= project.src %>/less/{,*/}*.less',
-        tasks: ['less:dev', 'autoprefixer:dev'],
+        tasks: ['less:dev', 'autoprefixer:dev', 'usebanner:css'],
+      },
+      sass: {
+        files: '<%= project.src %>/sass/{,*/}*.scss',
+        tasks: ['sass:prod', 'concat:css', 'autoprefixer:dev',
+                'usebanner:css'],
       },
       php: {
         files: '<%= project.src %>/**.php',
@@ -334,9 +385,12 @@ module.exports = function(grunt) {
     'copy',
     'replace:livereload',
     'less:dev',
+    'sass:prod',
+    'concat:css',
     'autoprefixer:dev',
     'jshint',
     'concat:dev',
+    'usebanner',
     'po2mo',
     'open',
     'watch',
@@ -349,6 +403,8 @@ module.exports = function(grunt) {
   grunt.registerTask('build', [
     'copy',
     'less:prod',
+    'sass:prod',
+    'concat:css',
     'uncss:prod',
     'autoprefixer:prod',
     'csso:prod',
@@ -356,6 +412,7 @@ module.exports = function(grunt) {
     'clean:prod',
     'jshint',
     'uglify',
+    'usebanner',
     'po2mo',
   ]);
 
