@@ -1,0 +1,91 @@
+/*
+Theme Name: Hesitant
+Description: Used to style the TinyMCE editor.
+*/
+
+@import url(http://fonts.googleapis.com/css?family=Fira+Sans:400,400italic,500,700,700italic);
+
+html .mceContentBody {
+  max-width: 800px;
+}
+
+body {
+  color: #333;
+  font-family: "Fira Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-size: 1rem;
+}
+
+a {
+  color: #004f8c;
+}
+a:focus,
+a:active,
+a:hover {
+  color: #002440;
+}
+
+.alignleft {
+  display: inline;
+  float: left;
+  margin: 12px 24px 12px 0;
+}
+.alignright {
+  display: inline;
+  float: right;
+  margin: 12px 0 12px 24px;
+}
+.aligncenter {
+  clear: both;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+img {
+  border: 0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  max-width: 100%;
+}
+img.size-full {
+  width: auto/9; /* Prevent stretching of full-size images in IE8 */
+}
+img[class*="wp-image-"] {
+  height: auto;
+  max-width: 100%;
+}
+img[class*="align"],
+img[class*="wp-image-"],
+img[class*="attachment-"] {
+  height: auto; /* Make sure images with WordPress-added height and width attributes are scaled correctly */
+}
+img.wp-smiley {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding: 0;
+}
+.wp-caption {
+  background: transparent;
+  border: none;
+  margin: 0;
+  padding: 4px;
+  text-align: left;
+}
+.wp-caption-dt {
+  margin: 0;
+}
+.wp-caption .wp-caption-text,
+.wp-caption-dd {
+  color: #757575;
+  font-style: italic;
+  font-size: 12px;
+  font-size: 0.857142857rem;
+  line-height: 2;
+  margin: 0 0 24px;
+  margin: 0 0 1.71429rem;
+}

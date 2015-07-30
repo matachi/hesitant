@@ -1,7 +1,5 @@
 'use strict';
 
-var LIVERELOAD_PORT = 35729;
-
 module.exports = function(grunt) {
 
   /**
@@ -35,6 +33,17 @@ module.exports = function(grunt) {
         ' * Copyright <%= pkg.copyright %> <%= pkg.author.name %> (<%= pkg.author.url %>)\n' +
         ' * Licensed under <%= pkg.license.type %> (<%= pkg.license.url %>).\n' +
         ' */\n',
+      wordpress:
+        '/*\n' +
+        'Theme Name: <%= pkg.title %>\n' +
+        'Theme URI: <%= pkg.homepage %>\n' +
+        'Author: <%= pkg.author.name %>\n' +
+        'Author URI: <%= pkg.author.url %>\n' +
+        'Description: <%= pkg.description %>\n' +
+        'Version: <%= pkg.version %>\n' +
+        'License: <%= pkg.license.type %>\n' +
+        'License URI: <%= pkg.license.url %>\n' +
+        '*/\n',
     },
 
     /**
@@ -44,21 +53,45 @@ module.exports = function(grunt) {
      */
     clean: {
       prod: [
-        '<%= project.dist %>/css/style.unprefixed.css',
-        '<%= project.dist %>/css/style.prefixed.css',
+        '<%= project.dist %>/style.unprefixed.css',
+        '<%= project.dist %>/style.prefixed.css',
+        '<%= project.dist %>/style.min.css',
       ]
     },
 
     /**
-     * Copy static HTML files
+     * Copy static PHP files
      * https://github.com/gruntjs/grunt-contrib-copy
      */
     copy: {
-      html: {
+      php: {
         expand: true,
         cwd: '<%= project.src %>/',
-        src: '**.html',
+        src: '**.php',
         dest: '<%= project.dist %>/',
+      },
+      header: {
+        expand: true,
+        cwd: '<%= project.src %>/',
+        src: 'img/header.jpg',
+        dest: '<%= project.dist %>/',
+      },
+    },
+
+    /**
+     * Add the livereload script to the footer
+     * https://github.com/yoniholmes/grunt-text-replace
+     */
+    replace: {
+      livereload: {
+        src: '<%= project.dist %>/footer.php',
+        overwrite: true,
+        replacements: [{
+          from: '</body>',
+          to: function() {
+            return '<script src="http://localhost:35729/livereload.js"></script></body>';
+          }
+        }],
       },
     },
 
@@ -114,16 +147,23 @@ module.exports = function(grunt) {
     /**
      * Compile Less files
      * https://github.com/gruntjs/grunt-contrib-less
+     * 140719: Using the git version because v0.11.4-pre has the `banner`
+     * option
      */
     less: {
       dev: {
+        options: {
+          banner: '<%= tag.wordpress %>',
+        },
         files: {
-          '<%= project.dist %>/css/style.unprefixed.css': '<%= project.css %>',
+          '<%= project.dist %>/style.unprefixed.css': '<%= project.css %>',
+          '<%= project.dist %>/editor-style.css': '<%= project.src %>/less/editor-style.less',
         },
       },
       prod: {
         files: {
-          '<%= project.dist %>/css/style.unprefixed.css': '<%= project.css %>',
+          '<%= project.dist %>/style.unprefixed.css': '<%= project.css %>',
+          '<%= project.dist %>/editor-style.css': '<%= project.src %>/less/editor-style.less',
         },
       },
     },
@@ -135,14 +175,33 @@ module.exports = function(grunt) {
     uncss: {
       prod: {
         options: {
-          stylesheets: ['css/style.unprefixed.css'],
+          stylesheets: ['style.unprefixed.css'],
           ignore: [
+            /#header.*/,
+            /#site-navigation.*/,
+            /#content.*/,
+            /#sidebar.*/,
+            /#footer.*/,
+            /\.entry-header.*/,
+            /\.entry-content.*/,
+            /\.entry-meta.*/,
+            /\.archive-header.*/,
             /.*\.toggled-on/,
+            /\.aligncenter/,
+            'embed',
+            'iframe',
+            'object',
+            'video',
+          ],
+          urls: [
+            'http://localhost/wordpress',
+            'http://localhost/wordpress/?p=1',
+            'http://localhost/wordpress/?page_id=2',
           ],
         },
         files: {
-          '<%= project.dist %>/css/style.unprefixed.css': [
-            '<%= project.dist %>/index.html',
+          '<%= project.dist %>/style.unprefixed.css': [
+            'dist/*.php',
           ],
         },
       },
@@ -164,12 +223,12 @@ module.exports = function(grunt) {
         ],
       },
       dev: {
-        src: '<%= project.dist %>/css/style.unprefixed.css',
-        dest: '<%= project.dist %>/css/style.min.css',
+        src: '<%= project.dist %>/style.unprefixed.css',
+        dest: '<%= project.dist %>/style.css',
       },
       prod: {
-        src: '<%= project.dist %>/css/style.unprefixed.css',
-        dest: '<%= project.dist %>/css/style.prefixed.css',
+        src: '<%= project.dist %>/style.unprefixed.css',
+        dest: '<%= project.dist %>/style.prefixed.css',
       },
     },
 
@@ -180,8 +239,8 @@ module.exports = function(grunt) {
      */
     csso: {
       prod: {
-        src: '<%= project.dist %>/css/style.prefixed.css',
-        dest: '<%= project.dist %>/css/style.min.css',
+        src: '<%= project.dist %>/style.prefixed.css',
+        dest: '<%= project.dist %>/style.min.css',
       },
     },
 
@@ -192,37 +251,22 @@ module.exports = function(grunt) {
     cssmin: {
       prod: {
         options: {
-          banner: '<%= tag.banner %>',
+          banner: '<%= tag.wordpress %>',
           keepSpecialComments: 0,
         },
-        src: '<%= project.dist %>/css/style.min.css',
-        dest: '<%= project.dist %>/css/style.min.css',
+        src: '<%= project.dist %>/style.min.css',
+        dest: '<%= project.dist %>/style.css',
       },
     },
 
     /**
-     * Connect port/livereload
-     * https://github.com/gruntjs/grunt-contrib-connect
-     * Starts a local webserver and injects livereload snippet
+     * Compile the language PO file to MO
+     * https://github.com/MicheleBertoli/grunt-po2mo
      */
-    connect: {
-      options: {
-        port: 9000,
-        hostname: '*',
-      },
-      livereload: {
-        options: {
-          middleware: function(connect) {
-            return [
-              require('connect-livereload')({
-                port: LIVERELOAD_PORT
-              }),
-              (function(connect, dir) {
-                return connect.static(require('path').resolve(dir));
-              })(connect, 'dist'),
-            ];
-          },
-        },
+    po2mo: {
+      prod: {
+        src: '<%= project.src %>/languages/sv_SE.po',
+        dest: '<%= project.dist %>/languages/sv_SE.mo',
       },
     },
 
@@ -232,7 +276,7 @@ module.exports = function(grunt) {
      */
     open: {
       server: {
-        path: 'http://localhost:<%= connect.options.port %>',
+        path: 'http://localhost/wordpress',
       },
     },
 
@@ -255,18 +299,27 @@ module.exports = function(grunt) {
         files: '<%= project.src %>/less/{,*/}*.less',
         tasks: ['less:dev', 'autoprefixer:dev'],
       },
-      html: {
-        files: '<%= project.src %>/**.html',
-        tasks: ['copy:html'],
+      php: {
+        files: '<%= project.src %>/**.php',
+        tasks: ['copy:php', 'replace:livereload'],
+      },
+      header: {
+        files: '<%= project.src %>/img/header.jpg',
+        tasks: ['copy:header'],
+      },
+      lang: {
+        files: '<%= project.src %>/languages/*.po',
+        tasks: ['po2mo'],
       },
       livereload: {
         options: {
-          livereload: LIVERELOAD_PORT,
+          livereload: true,
         },
         files: [
-          '<%= project.dist %>/{,*/}*.html',
+          '<%= project.dist %>/{,*/}*.php',
           '<%= project.dist %>/css/style.min.css',
           '<%= project.dist %>/js/scripts.min.js',
+          '<%= project.dist %>/languages/*.mo',
           '<%= project.dist %>/{,*/}*.{png,jpg,gif,svg}',
         ],
       },
@@ -279,11 +332,12 @@ module.exports = function(grunt) {
    */
   grunt.registerTask('default', [
     'copy',
+    'replace:livereload',
     'less:dev',
     'autoprefixer:dev',
     'jshint',
     'concat:dev',
-    'connect:livereload',
+    'po2mo',
     'open',
     'watch',
   ]);
@@ -302,6 +356,7 @@ module.exports = function(grunt) {
     'clean:prod',
     'jshint',
     'uglify',
+    'po2mo',
   ]);
 
 };

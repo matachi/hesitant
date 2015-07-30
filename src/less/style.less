@@ -56,9 +56,7 @@
 /*@font-size-base: 16px;*/
 /*@line-height-base: 1.71429;*/
 /*@headings-font-weight: 500;*/
-@brand-primary: #c81111;
-
-@screen-xl-min: 1920px;
+@brand-primary: #004f8c;
 
 body {
   /*background-color: #000;*/
@@ -66,10 +64,10 @@ body {
 }
 
 #header {
-  background-size: cover;
   display: block;
+  height: auto;
   margin: 0 auto;
-  max-width: @screen-xl-min;
+  max-width: 1170px;
   width: 100%;
 }
 
@@ -127,8 +125,8 @@ body {
       display: none;
     }
     .menu {
-      border-bottom: 1px solid #ededed;
-      border-top: 1px solid #ededed;
+      border-bottom: 1px solid darken(#fff, 10%);
+      border-top: 1px solid darken(#fff, 10%);
       display: inline-block;
       margin-top: 0;
       text-align: left;
@@ -146,16 +144,26 @@ body {
 #content {
   line-height: 1.71429;
   margin-bottom: 50px;
-  & > * {
-    padding-right: 25px;
+  @media (min-width: @screen-sm-min) {
+    & > * {
+      margin-right: 25px;
+    }
   }
   article {
-    word-wrap: break-word;
-  }
-  .blog-post {
     border-bottom: 4px double darken(#fff, 10%);
     padding-bottom: 20px;
     margin-bottom: 40px;
+    word-wrap: break-word;
+  }
+}
+
+.archive-header {
+  border-bottom: 1px solid darken(#fff, 10%);
+  margin-bottom: 40px;
+  padding-bottom: 7px;
+  width: 100%;
+  .archive-title {
+    #sidebar .widget-title();
   }
 }
 
@@ -170,8 +178,13 @@ body {
 }
 .entry-content {
   img {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
     height: auto;
     max-width: 100%;
+    &.aligncenter {
+      margin-bottom: 10px;
+      margin-top: 10px;
+    }
   }
   p {
     margin-bottom: 24px;
@@ -186,15 +199,44 @@ body {
   }
 }
 
+.alignleft {
+  display: inline;
+  float: left;
+  margin: 12px 24px 12px 0;
+}
+.alignright {
+  display: inline;
+  float: right;
+  margin: 12px 0 12px 24px;
+}
+.aligncenter {
+  clear: both;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+embed, iframe, object, video {
+  max-width: 100%;
+}
+
 #sidebar {
-  .widget_search {
+  img {
+    max-width: 100%;
+  }
+  ul {
+    .list-unstyled();
+  }
+  select {
+    .form-control();
+  }
+  aside {
     margin-bottom: 20px;
   }
   .widget-title {
     color: #636363;
     display: inline-block;
     text-transform: uppercase;
-    white-space: nowrap;
   }
 }
 

@@ -1,14 +1,20 @@
-'use strict';
-
-function parallax() {
-  var scrolled = $(window).scrollTop();
-  if (scrolled < 500) {
-    $('.blog-header').css('background-position', '0px ' + (0.2 * scrolled) + 'px');
+// Source: http://youmightnotneedjquery.com/#ready
+function ready(fn) {
+  'use strict';
+  if (document.addEventListener) {
+    document.addEventListener('DOMContentLoaded', fn);
+  } else {
+    document.attachEvent('onreadystatechange', function() {
+      if (document.readyState === 'interactive') {
+        fn();
+      }
+    });
   }
 }
-$(window).scroll(parallax);
 
-(function() {
+ready(function() {
+  'use strict';
+
   var nav = document.getElementById('site-navigation'), button, menu;
   button = nav.getElementsByTagName('button')[0];
   menu = nav.getElementsByTagName('ul')[0];
@@ -27,4 +33,4 @@ $(window).scroll(parallax);
       menu.className += ' toggled-on';
     }
   };
-})();
+});
