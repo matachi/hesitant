@@ -13,8 +13,16 @@
     </header>
 
     <?php
+    $counter = 0;
     while( have_posts() ) : the_post();
       get_template_part( 'content', get_post_format() );
+
+      // Ad
+      if ($counter == 0 || $counter == 1) {
+        set_query_var( 'hesitant_ad_id', $counter );
+        get_template_part( 'content', 'ad' );
+      }
+      ++$counter;
     endwhile;
 
     hesitant_content_nav();

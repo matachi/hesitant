@@ -11,6 +11,8 @@
       <li class="next"><?php next_post_link( '%link', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', 'hesitant' ) . '</span>' ); ?></li>
     </ul>
 
+    <?php get_template_part( 'content', 'ad' ); ?>
+
     <?php comments_template( '', true ); ?>
 
   <?php endwhile; ?>
