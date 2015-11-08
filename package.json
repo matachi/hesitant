@@ -10,7 +10,7 @@
   "homepage": "https://github.com/matachi/hesitant",
   "copyright": "2015",
   "license": {
-    "type": "GPLv3",
+    "type": "MIT License",
     "url": "https://github.com/matachi/hesitant/blob/master/LICENSE"
   },
   "repository": {

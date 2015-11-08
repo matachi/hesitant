@@ -3,7 +3,7 @@
   "version": "0.2.0",
   "dependencies": {
     "bootstrap": "~3.3.5",
-    "cookieconsent2": "~1.0.6"
+    "cookieconsent2": "~1.0.9"
   },
   "private": true
 }
