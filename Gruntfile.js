@@ -20,7 +20,10 @@ module.exports = function(grunt) {
       css: ['<%= project.src %>/less/style.less'],
       scss: ['<%= project.src %>/sass/style.scss'],
       js: ['<%= project.src %>/js/*.js'],
-      jsDep: ['bower_components/cookieconsent2/cookieconsent.js'],
+      jsDep: [
+        'bower_components/cookieconsent2/cookieconsent.js',
+        'bower_components/bootstrap/js/dropdown.js',
+      ],
     },
 
     /**

@@ -1,7 +1,7 @@
 <?php
 get_header(); ?>
 
-  <div class="col-sm-9" id="content">
+  <div class="col-sm-10 col-sm-offset-1" id="content">
 
     <?php if ( have_posts() ) : ?>
 
@@ -36,5 +36,4 @@ get_header(); ?>
 
   </div><!-- #content -->
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>

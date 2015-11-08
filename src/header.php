@@ -15,20 +15,42 @@
   </head>
   <body>
 
-    <div id="header">
-      <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-        <img id="header" src="<?php echo get_template_directory_uri() . '/img/header.jpg' ?>">
-      </a>
+    <div id="header" style="background-image: url('<?php echo get_template_directory_uri() . '/img/header.jpg' ?>')">
+      <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo get_bloginfo( 'name' ); ?></a>
     </div>
 
     <div class="container-fluid">
 
       <nav id="site-navigation" role="navigation">
         <button type="button" class="btn menu-toggle"><?php _e( 'Menu', 'hesitant' ); ?></button>
-        <?php wp_nav_menu( array(
-          'theme_location' => 'primary',
-          'container' => false
-        ) ); ?>
+        <ul id="menu" class="menu">
+          <?php wp_nav_menu( array(
+            'theme_location' => 'primary',
+            'container' => false,
+            'items_wrap' => '%3$s'
+          ) ); ?>
+          <li>
+            <div class="btn-group">
+              <button type="button" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <?php echo esc_attr( __( 'Categories' ) ); ?> <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <?php wp_list_categories( array( 'title_li' => '' ) ); ?>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="btn-group">
+              <button type="button" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <?php echo esc_attr( __( 'Archives' ) ); ?> <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <?php wp_get_archives( array( 'type' => 'monthly' ) ); ?>
+              </ul>
+            </div>
+          </li>
+          <li><?php get_search_form(); ?></li>
+        </ul>
       </nav>
 
       <div class="row" id="main">

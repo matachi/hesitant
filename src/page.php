@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<div class="col-sm-9" id="content">
+<div class="col-sm-10 col-sm-offset-1" id="content">
 
   <?php while( have_posts() ) : the_post(); ?>
     <?php get_template_part( 'content', 'page' ); ?>
@@ -9,5 +9,4 @@
 
 </div><!-- /#content -->
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>
