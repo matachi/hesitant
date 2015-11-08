@@ -1,14 +1,14 @@
-# Copyright (C) 2014 Daniel 'MaTachi' Jonsson
-# This file is distributed under the MIT.
+# Copyright (C) 2015 Daniel Jonsson
+# This file is distributed under the MIT License.
 msgid ""
 msgstr ""
-"Project-Id-Version: Hesitant 0.1.0\n"
-"Report-Msgid-Bugs-To: https://github.com/MaTachi/hesitant/issues\n"
-"POT-Creation-Date: 2014-07-21 18:51:35+00:00\n"
+"Project-Id-Version: Hesitant 0.2.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/hesitant\n"
+"POT-Creation-Date: 2015-11-08 15:45:13+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
@@ -44,7 +44,7 @@ msgctxt "yearly archives date format"
 msgid "Y"
 msgstr ""
 
-#: archive.php:16
+#: archive.php:16 header.php:45
 msgid "Archives"
 msgstr ""
 
@@ -70,64 +70,60 @@ msgstr ""
 msgid "Comments are closed."
 msgstr ""
 
-#: content-page.php:7 content.php:25 image.php:82
+#: content-page.php:7 content.php:19 image.php:82
 msgid "Pages:"
 msgstr ""
 
-#: content-page.php:10 content.php:30 image.php:26
+#: content-page.php:10 content.php:33 image.php:26
 msgid "Edit"
 msgstr ""
 
-#: content.php:13
-msgid "Leave a reply"
-msgstr ""
-
-#: content.php:14
-msgid "1 Reply"
-msgstr ""
-
-#: content.php:15
-msgid "% Replies"
-msgstr ""
-
-#: content.php:24
+#: content.php:18
 msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
-#: functions.php:4
+#: content.php:25
+msgid "Leave a reply"
+msgstr ""
+
+#: content.php:26
+msgid "1 Reply"
+msgstr ""
+
+#: content.php:27
+msgid "% Replies"
+msgstr ""
+
+#: functions.php:11
 msgid "Primary Menu"
 msgstr ""
 
-#: functions.php:17
-msgid "Sidebar"
-msgstr ""
-
-#: functions.php:19
-msgid "Appears on all pages to the right"
-msgstr ""
-
-#: functions.php:43
+#: functions.php:38
 msgid "Page %s"
 msgstr ""
 
-#: functions.php:53
+#: functions.php:48
 msgid "&larr; Older posts"
 msgstr ""
 
-#: functions.php:54
+#: functions.php:49
 msgid "Newer posts &rarr;"
 msgstr ""
 
-#: functions.php:60
+#: functions.php:63
 msgid ", "
 msgstr ""
 
-#: functions.php:69
-msgid "This entry was posted in %1$s on %2$s."
+#: functions.php:65
+msgid "This entry was posted in: %1$s."
 msgstr ""
 
-#: header.php:24
+#: header.php:25
 msgid "Menu"
+msgstr ""
+
+#: header.php:35
+msgid "Categories"
 msgstr ""
 
 #: image.php:15
@@ -161,7 +157,7 @@ msgid ""
 "different keywords."
 msgstr ""
 
-#: searchform.php:8
+#: searchform.php:2
 msgid "Search"
 msgstr ""
 
@@ -180,15 +176,17 @@ msgid "Hesitant"
 msgstr ""
 
 #. Theme URI of the plugin/theme
-msgid "https://github.com/MaTachi/hesitant"
+msgid "https://github.com/matachi/hesitant"
 msgstr ""
 
 #. Description of the plugin/theme
-msgid "Classy WordPress theme that follows those classic blog conventions."
+msgid ""
+"WordPress theme that adheres to those classic blog conventions and "
+"hesitantly looks at the new trends."
 msgstr ""
 
 #. Author of the plugin/theme
-msgid "Daniel 'MaTachi' Jonsson"
+msgid "Daniel Jonsson"
 msgstr ""
 
 #. Author URI of the plugin/theme
