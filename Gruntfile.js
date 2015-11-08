@@ -343,7 +343,7 @@ module.exports = function(grunt) {
       },
       less: {
         files: '<%= project.src %>/less/{,*/}*.less',
-        tasks: ['less:dev', 'autoprefixer:dev', 'usebanner:css'],
+        tasks: ['less:dev', 'concat:css', 'autoprefixer:dev', 'usebanner:css'],
       },
       sass: {
         files: '<%= project.src %>/sass/{,*/}*.scss',
