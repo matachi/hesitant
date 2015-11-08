@@ -5,6 +5,9 @@ $ads = array(
   1 => 'slot_code'
 );
 $id = get_query_var( 'hesitant_ad_id', 0 );
+
+if ($id > 0)
+  return
 ?>
 <article>
   <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
