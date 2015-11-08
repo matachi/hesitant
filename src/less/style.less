@@ -56,8 +56,10 @@
 /*@font-size-base: 16px;*/
 /*@line-height-base: 1.71429;*/
 @headings-font-weight: 700;
-@brand-primary: #004f8c;
+@brand-primary: #7e005a;
 
+@headings-font-family: 'Libre Baskerville';
+@headings-font-weight: 400;
 
 #header {
   display: block;
@@ -234,10 +236,18 @@
   margin-bottom: 20px;
   h2 {
     margin: 0 0 10px;
+    font-size: 40px;
   }
   .comments-link {
     margin-top: 10px;
   }
+  text-align: center;
+}
+.entry-date {
+  color: lighten(#000, 40%);
+  margin-bottom: 15px;
+  text-align: center;
+  text-transform: uppercase;
 }
 .entry-content {
   img {
@@ -253,13 +263,17 @@
     margin-bottom: 24px;
   }
 }
+.entry-comments-link {
+  font-size: 110%;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+}
 .entry-meta {
   color: lighten(#000, 40%);
   font-size: 95%;
-  a {
-    color: lighten(#000, 40%);
-    text-decoration: underline;
-  }
+  text-align: center;
+  margin-top: 10px;
 }
 
 .alignleft {

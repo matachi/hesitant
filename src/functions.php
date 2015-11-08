@@ -51,19 +51,19 @@ function hesitant_content_nav() {
   <?php endif;
 }
 
+function hesitant_entry_date() {
+  $date = sprintf( '<time class="entry-date" datetime="%1$s">%2$s</time>',
+    esc_attr( get_the_date( 'c' ) ),
+    esc_html( get_the_date() . ' – ' . get_the_time() )
+  );
+  print($date);
+}
+
 function hesitant_entry_meta() {
   $categories_list = get_the_category_list( __( ', ', 'hesitant' ) );
-
-  $date = sprintf( '<a href="%1$s" title="Permalink to the post" rel="bookmark"><time class="entry-date" datetime="%2$s">%3$s</time></a>',
-    esc_url( get_permalink() ),
-    esc_attr( get_the_date( 'c' ) ),
-    esc_html( get_the_date() . ' ' . get_the_time() )
-  );
-
   printf(
-    __( 'This entry was posted in %1$s on %2$s.', 'hesitant' ),
-    $categories_list,
-    $date
+    __( 'This entry was posted in: %1$s.', 'hesitant' ),
+    $categories_list
   );
 }
 
