@@ -220,6 +220,7 @@ module.exports = function(grunt) {
             'iframe',
             'object',
             'video',
+            /\.dropdown-menu.*/,
           ],
           urls: [
             'http://localhost/wordpress',
@@ -261,23 +262,11 @@ module.exports = function(grunt) {
 
     /**
      * CSS minification
-     * https://github.com/t32k/grunt-csso
-     * CSSO's `restructure` feature is pretty powerful and useful
-     */
-    csso: {
-      prod: {
-        src: '<%= project.dist %>/style.prefixed.css',
-        dest: '<%= project.dist %>/style.min.css',
-      },
-    },
-
-    /**
-     * CSS minification
      * https://github.com/gruntjs/grunt-contrib-cssmin
      */
     cssmin: {
       prod: {
-        src: '<%= project.dist %>/style.min.css',
+        src: '<%= project.dist %>/style.prefixed.css',
         dest: '<%= project.dist %>/style.css',
       },
     },
@@ -410,7 +399,6 @@ module.exports = function(grunt) {
     'concat:css',
     'uncss:prod',
     'autoprefixer:prod',
-    'csso:prod',
     'cssmin:prod',
     'clean:prod',
     'jshint',
