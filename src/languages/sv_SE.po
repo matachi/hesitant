@@ -1,15 +1,15 @@
-# Copyright (C) 2014 Daniel 'MaTachi' Jonsson
-# This file is distributed under the MIT.
+# Copyright (C) 2015 Daniel Jonsson
+# This file is distributed under the MIT License.
 msgid ""
 msgstr ""
-"Project-Id-Version: Hesitant 0.1.0\n"
-"Report-Msgid-Bugs-To: https://github.com/MaTachi/hesitant/issues\n"
-"POT-Creation-Date: 2014-07-21 18:51:35+00:00\n"
+"Project-Id-Version: Hesitant 0.2.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/hesitant\n"
+"POT-Creation-Date: 2015-11-08 15:45:13+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Daniel 'MaTachi' Jonsson <dannie92@gmail.com>\n"
+"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Daniel Jonsson <dannie92@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
 #: 404.php:8
@@ -45,7 +45,7 @@ msgctxt "yearly archives date format"
 msgid "Y"
 msgstr "Y"
 
-#: archive.php:16
+#: archive.php:16 header.php:45
 msgid "Archives"
 msgstr "Arkiv"
 
@@ -79,15 +79,12 @@ msgstr "Sidor:"
 msgid "Edit"
 msgstr "Redigera"
 
-#: content.php:13
 msgid "Leave a reply"
 msgstr "Lämna en kommentar"
 
-#: content.php:14
 msgid "1 Reply"
 msgstr "1 kommentar"
 
-#: content.php:15
 msgid "% Replies"
 msgstr "% kommentarer"
 
@@ -103,31 +100,24 @@ msgstr "Primär meny"
 msgid "Sidebar"
 msgstr "Sidopanel"
 
-#: functions.php:19
 msgid "Appears on all pages to the right"
 msgstr "Visas till höger på alla sidor"
 
-#: functions.php:43
 msgid "Page %s"
 msgstr "Sida %s"
 
-#: functions.php:53
 msgid "&larr; Older posts"
 msgstr "&larr; Äldre inlägg"
 
-#: functions.php:54
 msgid "Newer posts &rarr;"
 msgstr "Nyare inlägg &rarr;"
 
-#: functions.php:60
 msgid ", "
 msgstr ", "
 
-#: functions.php:69
-msgid "This entry was posted in %1$s on %2$s."
-msgstr "Detta inlägget postades i %1$s den %2$s."
+msgid "This entry was posted in: %1$s."
+msgstr "Detta inlägget postades i: %1$s."
 
-#: header.php:24
 msgid "Menu"
 msgstr "Meny"
 
@@ -163,7 +153,6 @@ msgid ""
 msgstr "Ledsen, inga resultat kunde hittas med dina sökord. Var vänlig "
 "att försöka med andra ord."
 
-#: searchform.php:8
 msgid "Search"
 msgstr "Sök"
 
