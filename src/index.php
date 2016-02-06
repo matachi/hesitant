@@ -13,7 +13,6 @@
         // Ad
         set_query_var( 'hesitant_ad_id', $counter++ );
         get_template_part( 'content', 'ad' );
-        ;
       endwhile;
 
       hesitant_content_nav();
