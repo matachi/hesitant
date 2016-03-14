@@ -14,10 +14,7 @@
     <?php wp_head(); ?>
   </head>
   <body>
-
-    <div id="header" style="background-image: url('<?php echo get_template_directory_uri() . '/img/header.jpg' ?>')">
-      <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo get_bloginfo( 'name' ); ?></a>
-    </div>
+    <img id="header" src="<?php echo get_template_directory_uri() . '/img/header.jpg' ?>" />
 
     <div class="container-fluid">
 
