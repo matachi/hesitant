@@ -14,7 +14,7 @@
     <?php wp_head(); ?>
   </head>
   <body>
-    <img id="header" src="<?php echo get_template_directory_uri() . '/img/header.jpg' ?>" />
+    <div id="header" style="background-image: url(<?php echo get_template_directory_uri() . '/img/header-new.jpg' ?>)"></div>
 
     <div class="container-fluid">
 

@@ -13,7 +13,7 @@ function hesitant_setup() {
 add_action( 'after_setup_theme', 'hesitant_setup' );
 
 function hesitant_scripts_styles() {
-  wp_enqueue_style( 'hesitant-fonts', esc_url_raw( 'http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic|Libre+Baskerville' ) );
+  wp_enqueue_style( 'hesitant-fonts', esc_url_raw( 'http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic|Julius+Sans+One' ) );
   wp_enqueue_style( 'hesitant-style', get_stylesheet_uri(), 'hesitant-fonts', '20151108' );
   wp_enqueue_script( 'hesitant-script', get_template_directory_uri() . '/js/scripts.min.js', [], '20150730', true );
   wp_enqueue_script( 'jquery-core' );
